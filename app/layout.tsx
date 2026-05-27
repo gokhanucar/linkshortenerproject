@@ -55,6 +55,12 @@ export default function RootLayout({
           <main className="flex flex-1 flex-col">
             {children}
           </main>
+          <footer className="border-t border-border bg-background/80">
+            <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 text-sm text-muted-foreground">
+              <span>© {new Date().getFullYear()} LinkShortener</span>
+              <span>Built with Next.js &amp; Clerk</span>
+            </div>
+          </footer>
         </ClerkProvider>
       </body>
     </html>
