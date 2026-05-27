@@ -1,5 +1,3 @@
-import { auth } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
 import { SignUpButton, SignInButton } from '@clerk/nextjs';
 import { Link2, BarChart2, LayoutDashboard, UserPlus, ClipboardList, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -47,10 +45,7 @@ const steps = [
   },
 ];
 
-export default async function Home() {
-  const { userId } = await auth();
-  if (userId) redirect('/dashboard');
-
+export default function Home() {
   return (
     <div className="flex flex-col font-[family-name:var(--font-geist-sans)]">
       {/* Hero */}
@@ -64,10 +59,10 @@ export default async function Home() {
           analytics, and manage everything from one clean dashboard.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <SignUpButton mode="modal">
+          <SignUpButton mode="modal" forceRedirectUrl="/dashboard">
             <Button size="lg">Get started — it&apos;s free</Button>
           </SignUpButton>
-          <SignInButton mode="modal">
+          <SignInButton mode="modal" forceRedirectUrl="/dashboard">
             <Button size="lg" variant="outline">
               Sign in
             </Button>

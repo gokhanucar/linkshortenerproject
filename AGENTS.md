@@ -47,6 +47,7 @@ docs/                 # Agent instruction documents ← READ BEFORE CODING
 
 ## Quick Rules
 
+- **NEVER use `middleware.ts`** — it is deprecated and not supported in Next.js 16 (the version used in this project). ALWAYS Use `proxy.ts` instead for any middleware/proxy logic.
 - This is a **Next.js App Router** project — never use the `pages/` directory.
 - All components are **React Server Components by default**. Add `"use client"` only when strictly necessary.
 - Use the `@/` path alias for all internal imports (maps to the project root).
