@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { links } from "@/db/schema";
-import { desc, eq } from "drizzle-orm";
+import { desc, eq, and } from "drizzle-orm";
 
 export async function getLinksByUserId(userId: string) {
   return db
@@ -32,13 +32,13 @@ export async function updateLink(input: UpdateLinkInput) {
   const [link] = await db
     .update(links)
     .set({ url: input.url, shortCode: input.shortCode, updatedAt: new Date() })
-    .where(eq(links.id, input.id))
+    .where(and(eq(links.id, input.id), eq(links.userId, input.userId)))
     .returning();
   return link;
 }
 
 export async function deleteLinkById(id: number, userId: string) {
-  await db.delete(links).where(eq(links.id, id));
+  await db.delete(links).where(and(eq(links.id, id), eq(links.userId, userId)));
 }
 
 export async function getLinkByShortCode(shortCode: string) {

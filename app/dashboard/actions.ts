@@ -5,8 +5,21 @@ import { z } from "zod";
 import { createLink, updateLink, deleteLinkById } from "@/data/links";
 import { randomBytes } from "crypto";
 
+function isHttpOrHttps(url: string): boolean {
+  try {
+    const { protocol } = new URL(url);
+    return protocol === "http:" || protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
 const createLinkSchema = z.object({
-  url: z.string().url("Please enter a valid URL."),
+  url: z
+    .string()
+    .url("Please enter a valid URL.")
+    .max(2048, "URL must be at most 2048 characters.")
+    .refine(isHttpOrHttps, { message: "URL must use http or https." }),
   shortCode: z
     .string()
     .min(3, "Short code must be at least 3 characters.")
@@ -53,7 +66,11 @@ export async function createLinkAction(input: CreateLinkInput) {
 
 const updateLinkSchema = z.object({
   id: z.number().int().positive(),
-  url: z.string().url("Please enter a valid URL."),
+  url: z
+    .string()
+    .url("Please enter a valid URL.")
+    .max(2048, "URL must be at most 2048 characters.")
+    .refine(isHttpOrHttps, { message: "URL must use http or https." }),
   shortCode: z
     .string()
     .min(3, "Short code must be at least 3 characters.")
