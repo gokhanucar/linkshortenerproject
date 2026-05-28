@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
-import { useTransition } from 'react';
-import { useRouter } from 'next/navigation';
+import { useTransition } from "react";
+import { useRouter } from "next/navigation";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -11,8 +11,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from '@/components/ui/alert-dialog';
-import { deleteLinkAction } from './actions';
+} from "@/components/ui/alert-dialog";
+import { deleteLinkAction } from "./actions";
 
 type Props = {
   open: boolean;
@@ -41,8 +41,9 @@ export function DeleteLinkDialog({ open, onOpenChange, link }: Props) {
         <AlertDialogHeader>
           <AlertDialogTitle>Delete link?</AlertDialogTitle>
           <AlertDialogDescription>
-            This will permanently delete <span className="font-mono font-medium">/{link.shortCode}</span>. This action
-            cannot be undone.
+            This will permanently delete{" "}
+            <span className="font-mono font-medium">/{link.shortCode}</span>.
+            This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
@@ -52,7 +53,7 @@ export function DeleteLinkDialog({ open, onOpenChange, link }: Props) {
             disabled={isPending}
             className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
           >
-            {isPending ? 'Deleting…' : 'Delete'}
+            {isPending ? "Deleting…" : "Delete"}
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>

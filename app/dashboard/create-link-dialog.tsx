@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useTransition } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import {
   Dialog,
   DialogContent,
   DialogHeader,
   DialogTitle,
   DialogFooter,
-} from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { createLinkAction } from './actions';
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { createLinkAction } from "./actions";
 
 type Props = {
   open: boolean;
@@ -22,14 +22,14 @@ type Props = {
 export function CreateLinkDialog({ open, onOpenChange }: Props) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const [url, setUrl] = useState('');
-  const [shortCode, setShortCode] = useState('');
+  const [url, setUrl] = useState("");
+  const [shortCode, setShortCode] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   function handleClose(open: boolean) {
     if (!open) {
-      setUrl('');
-      setShortCode('');
+      setUrl("");
+      setShortCode("");
       setError(null);
     }
     onOpenChange(open);
@@ -76,7 +76,8 @@ export function CreateLinkDialog({ open, onOpenChange }: Props) {
           </div>
           <div className="flex flex-col gap-2">
             <Label htmlFor="shortCode">
-              Custom short code <span className="text-muted-foreground">(optional)</span>
+              Custom short code{" "}
+              <span className="text-muted-foreground">(optional)</span>
             </Label>
             <Input
               id="shortCode"
@@ -92,11 +93,16 @@ export function CreateLinkDialog({ open, onOpenChange }: Props) {
           </div>
           {error && <p className="text-sm text-destructive">{error}</p>}
           <DialogFooter>
-            <Button type="button" variant="outline" onClick={() => handleClose(false)} disabled={isPending}>
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => handleClose(false)}
+              disabled={isPending}
+            >
               Cancel
             </Button>
             <Button type="submit" disabled={isPending}>
-              {isPending ? 'Creating...' : 'Create link'}
+              {isPending ? "Creating..." : "Create link"}
             </Button>
           </DialogFooter>
         </form>

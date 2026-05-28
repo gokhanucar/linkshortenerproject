@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ClerkProvider, SignInButton, SignUpButton, Show, UserButton } from "@clerk/nextjs";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignUpButton,
+  Show,
+  UserButton,
+} from "@clerk/nextjs";
 import { shadcn } from "@clerk/ui/themes";
 import { Button } from "@/components/ui/button";
 import "./globals.css";
@@ -52,9 +58,7 @@ export default function RootLayout({
               </div>
             </div>
           </header>
-          <main className="flex flex-1 flex-col">
-            {children}
-          </main>
+          <main className="flex flex-1 flex-col">{children}</main>
           <footer className="border-t border-border bg-background/80">
             <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4 text-sm text-muted-foreground">
               <span>© {new Date().getFullYear()} LinkShortener</span>

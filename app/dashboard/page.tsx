@@ -1,7 +1,7 @@
-import { auth } from '@clerk/nextjs/server';
-import { getLinksByUserId } from '@/data/links';
-import { CreateLinkButton } from './create-link-button';
-import { LinkCard } from './link-card';
+import { auth } from "@clerk/nextjs/server";
+import { getLinksByUserId } from "@/data/links";
+import { CreateLinkButton } from "./create-link-button";
+import { LinkCard } from "./link-card";
 
 export default async function DashboardPage() {
   const { userId } = await auth();
@@ -14,7 +14,9 @@ export default async function DashboardPage() {
         <CreateLinkButton />
       </div>
       {userLinks.length === 0 ? (
-        <p className="text-muted-foreground">You have no shortened links yet.</p>
+        <p className="text-muted-foreground">
+          You have no shortened links yet.
+        </p>
       ) : (
         <div className="flex flex-col gap-4">
           {userLinks.map((link) => (

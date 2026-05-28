@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Pencil, Trash2 } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { EditLinkDialog } from './edit-link-dialog';
-import { DeleteLinkDialog } from './delete-link-dialog';
+import { useState } from "react";
+import { Pencil, Trash2 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { EditLinkDialog } from "./edit-link-dialog";
+import { DeleteLinkDialog } from "./delete-link-dialog";
 
 type Link = {
   id: number;
@@ -27,7 +27,9 @@ export function LinkCard({ link }: Props) {
       <Card key={link.id}>
         <CardHeader className="pb-2">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-base font-mono">/{link.shortCode}</CardTitle>
+            <CardTitle className="text-base font-mono">
+              /{link.shortCode}
+            </CardTitle>
             <div className="flex items-center gap-1">
               <Button
                 variant="ghost"

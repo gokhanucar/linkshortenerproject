@@ -20,9 +20,9 @@ All authentication in this project is handled exclusively by **Clerk**. Do not i
 
 ```ts
 // proxy.ts
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-const isProtectedRoute = createRouteMatcher(['/dashboard(.*)']);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)"]);
 
 export default clerkMiddleware(async (auth, req) => {
   if (isProtectedRoute(req)) {
@@ -31,7 +31,7 @@ export default clerkMiddleware(async (auth, req) => {
 });
 
 export const config = {
-  matcher: ['/((?!_next|.*\\..*).*)'],
+  matcher: ["/((?!_next|.*\\..*).*)"],
 };
 ```
 
@@ -42,12 +42,12 @@ export const config = {
 
 ```ts
 // app/page.tsx
-import { auth } from '@clerk/nextjs/server';
-import { redirect } from 'next/navigation';
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 export default async function HomePage() {
   const { userId } = await auth();
-  if (userId) redirect('/dashboard');
+  if (userId) redirect("/dashboard");
   // render landing page for unauthenticated users
 }
 ```

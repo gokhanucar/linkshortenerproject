@@ -4,17 +4,18 @@ This file is the entry point for LLM coding agents working in this repository.
 
 ## Project Stack & Structure
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript 5 (strict) |
-| Auth | Clerk (`@clerk/nextjs`) |
-| Database | Neon (serverless PostgreSQL) |
-| ORM | Drizzle ORM — schema at `db/schema.ts`, config at `drizzle.config.ts` |
-| UI | shadcn/ui + Radix UI + Tailwind CSS v4 |
-| Icons | Lucide React |
+| Layer     | Technology                                                            |
+| --------- | --------------------------------------------------------------------- |
+| Framework | Next.js 16 (App Router)                                               |
+| Language  | TypeScript 5 (strict)                                                 |
+| Auth      | Clerk (`@clerk/nextjs`)                                               |
+| Database  | Neon (serverless PostgreSQL)                                          |
+| ORM       | Drizzle ORM — schema at `db/schema.ts`, config at `drizzle.config.ts` |
+| UI        | shadcn/ui + Radix UI + Tailwind CSS v4                                |
+| Icons     | Lucide React                                                          |
 
 **Folder layout:**
+
 ```
 app/                  # Next.js App Router pages & layouts
   layout.tsx          # Root layout (ClerkProvider, global nav)
