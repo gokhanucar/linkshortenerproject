@@ -1,3 +1,7 @@
+---
+description: Read this before implementing or modifying any UI components in the project.
+---
+
 # UI Components (shadcn/ui)
 
 All UI elements in this project use **shadcn/ui**. This is a strict rule with no exceptions.

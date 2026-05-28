@@ -1,3 +1,7 @@
+---
+description: Read this before implementing or modifying any authentication logic in the project.
+---
+
 # Authentication — Clerk
 
 All authentication in this project is handled exclusively by **Clerk**. Do not implement any custom auth logic, sessions, JWTs, or alternative auth providers.
