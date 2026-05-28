@@ -1,16 +1,6 @@
 # Agent Instructions — Link Shortener Project
 
-This file is the entry point for LLM coding agents working in this repository. All detailed instructions are split into focused documents inside the `/docs` directory.
-
-> [!CAUTION]
-> **MANDATORY — NO EXCEPTIONS:** You MUST read every relevant file in the `/docs` directory using the `read_file` tool BEFORE writing, editing, or generating ANY code whatsoever. Do not rely on memory, assumptions, or summaries. Skipping this step will result in incorrect implementations. There are no exceptions to this rule.
-
-## Instruction Documents
-
-Read ALL documents that apply to the area you are working in. When in doubt, read all of them.
-
-- [Authentication (Clerk)](./docs/auth.md) — **REQUIRED** for any auth-related work. Auth rules, protected routes, homepage redirect, and modal sign-in/sign-up.
-- [UI Components (shadcn/ui)](./docs/ui.md) — **REQUIRED** for any UI-related work. UI component rules; always use shadcn/ui, never hand-write custom primitives.
+This file is the entry point for LLM coding agents working in this repository.
 
 ## Project Stack & Structure
 
@@ -37,7 +27,6 @@ db/
   schema.ts           # Drizzle table definitions
 lib/
   utils.ts            # Shared utility helpers (cn, etc.)
-docs/                 # Agent instruction documents ← READ BEFORE CODING
 ```
 
 ## Environment Prerequisites
